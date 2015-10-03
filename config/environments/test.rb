@@ -13,7 +13,7 @@ SampleApp::Application.configure do
   config.eager_load = false
 
   # Configure static asset server for tests with Cache-Control for performance.
-  config.serve_static_assets = true
+
   config.static_cache_control = "public, max-age=3600"
 
   # Show full error reports and disable caching.
@@ -36,4 +36,8 @@ SampleApp::Application.configure do
 
   # Speed up tests by lowering bcrypt's cost function.
   ActiveModel::SecurePassword.min_cost = true
+
+  config.logger = Logger.new(STDOUT)
+
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
 end
